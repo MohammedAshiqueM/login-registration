@@ -14,7 +14,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: 	#FAF9F6!important;
 }
 input{
     padding:10px;

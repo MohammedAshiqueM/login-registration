@@ -8,12 +8,16 @@ from django.views.decorators.cache import never_cache
 
 
 ########################## function for login ##############################
-
+@never_cache
 def login(request):
     
     #Instantiation of the form class UserRegistrationForm 
     form=UserRegistrationForm()
     context={'form':form}
+    
+    #For restrict the navigation back to the login page after login
+    if request.user.is_authenticated:
+        return redirect('home')        
     
     #fetching data if form is submitted
     if request.method == 'POST':
@@ -44,12 +48,13 @@ def login(request):
 @login_required(login_url='login')
 @never_cache
 def home(request):
-    return render(request,"home.html")
+    if request.user.is_authenticated:
+        return render(request,"home.html")
 
-########################## home page function ends ###############################
+########################## home page function ends ############################
 
 
-########################## function for register  ############################
+########################## function for register  #############################
 
 def register(request):
     

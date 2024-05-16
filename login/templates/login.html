@@ -35,7 +35,7 @@
 
 <body>
 
-        <div class="login {% if messages %}{% for msg in messages %}{% if msg.tags == 'alert-success' %}message-success{% elif msg.tags == 'alert-danger' %}message-danger{% endif %}{% endfor %}{% endif %}">
+        <div class="login {% if messages %}{% for msg in messages %}{% if msg.tags == 'alert-success' %}message-success{% elif msg.tags == 'alert-danger' %}message-error{% endif %}{% endfor %}{% endif %}">
         <h4>Login</h4>
         {% if messages %}
         {% for msg in messages %}
